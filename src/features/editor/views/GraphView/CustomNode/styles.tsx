@@ -30,7 +30,7 @@ export const StyledForeignObject = styled.foreignObject<{ $isObject?: boolean }>
   font-size: 12px;
   font-weight: 500;
   overflow: hidden;
-  pointer-events: none;
+  pointer-events: auto;
 
   &.searched {
     background: rgba(27, 255, 0, 0.1);
@@ -98,4 +98,69 @@ export const StyledChildrenCount = styled.span`
   color: ${({ theme }) => theme.NODE_COLORS.CHILD_COUNT};
   padding: 10px;
   margin-left: -15px;
+`;
+
+export const StyledEditButtonOverlay = styled.button`
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: ${({ theme }) => theme.BACKGROUND_MODIFIER_ACCENT};
+  color: ${({ theme }) => theme.TEXT_NORMAL};
+  border: 1px solid ${({ theme }) => theme.INTERACTIVE_NORMAL};
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 10;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+    background: ${({ theme }) => theme.INTERACTIVE_HOVER};
+  }
+`;
+
+export const StyledEditRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  height: ${NODE_DIMENSIONS.ROW_HEIGHT}px;
+  pointer-events: all;
+`;
+
+export const StyledEditInput = styled.input`
+  flex: 1;
+  min-width: 40px;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-family: monospace;
+  background: ${({ theme }) => theme.BACKGROUND_PRIMARY};
+  color: ${({ theme }) => theme.TEXT_NORMAL};
+  border: 1px solid ${({ theme }) => theme.INTERACTIVE_NORMAL};
+  border-radius: 2px;
+  outline: none;
+  pointer-events: all;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.INTERACTIVE_ACTIVE};
+  }
+`;
+
+export const StyledEditButton = styled.button`
+  padding: 2px 6px;
+  font-size: 12px;
+  background: ${({ theme }) => theme.BACKGROUND_MODIFIER_ACCENT};
+  color: ${({ theme }) => theme.TEXT_NORMAL};
+  border: 1px solid ${({ theme }) => theme.INTERACTIVE_NORMAL};
+  border-radius: 2px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${({ theme }) => theme.INTERACTIVE_HOVER};
+  }
 `;
